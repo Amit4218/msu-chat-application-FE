@@ -8,7 +8,7 @@ import { UserProvider } from "./contexts/userContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="msu-chat-application-FE">
       <ThemeProvider>
         <UserProvider>
           <App />
