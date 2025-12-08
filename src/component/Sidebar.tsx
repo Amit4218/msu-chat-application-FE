@@ -20,12 +20,12 @@ const Sidebar = () => {
         <div className="sidebar-header-bottom  w-full h-1/2 p-1">
           <label
             htmlFor="search"
-            className="w-full h-full relative flex items-center"
+            className="w-full h-full relative flex items-center "
           >
             <input
               type="text"
               placeholder="search user..."
-              className="w-full border rounded-full h-3/4 p-1.5 pl-4 "
+              className="w-full border-none bg-[#414568] rounded-full h-3/4 p-1.5 pl-4 focus:outline-none "
             />
             <UserRoundSearch strokeWidth={0.75} className="absolute right-5" />
           </label>
