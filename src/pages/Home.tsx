@@ -1,15 +1,19 @@
+import ChatInterface from "../component/ChatInterface";
 import Sidebar from "../component/Sidebar";
-import { Link } from "react-router-dom";
-import { useTheme } from "../contexts/themeProvider";
+// import { Link } from "react-router-dom";
+// import { useTheme } from "../contexts/themeProvider";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
+  // const { theme, setTheme } = useTheme();
 
   return (
-    <div className="dark:bg-zinc-700 min-h-screen">
-      <button onClick={() => setTheme(!theme)}>Change theme</button>
-      <Sidebar />
-      <div className="dark:bg-zinc-700 min-h-screen p-4 text-center dark:text-white">
+    <div className="dark:bg-zinc-700 min-h-screen  ">
+      {/* <button onClick={() => setTheme(!theme)}>Change theme</button> */}
+      <div className="chatpage w-Screen h-Screen flex bg-[#333657]">
+        <Sidebar />
+        <ChatInterface />
+      </div>
+      {/* <div className="dark:bg-zinc-700 min-h-screen p-4 text-center dark:text-white">
         <h1>Home</h1>
         <button
           className="py-2 my-3 px-2 rounded bg-blue-600"
@@ -46,7 +50,7 @@ export default function Home() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

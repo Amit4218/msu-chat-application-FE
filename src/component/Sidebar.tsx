@@ -4,7 +4,7 @@ import SidebarGroupCard from "./SidebarGroupCard";
 
 const Sidebar = () => {
   return (
-    <div className="h-screen w-[23vw] bg-[#333657] p-2 text-white">
+    <div className="h-screen w-[23vw] bg-[#333657] p-2 text-white border-r border-[#484D73]">
       <div className="sidebar-header w-full h-36">
         <div className="sidebar-header-top w-full h-1/2  flex justify-between items-center">
           <div className="sidebar-header-top-logo-messages  w-2/4 flex h-full justify-between items-center p-2 text-lg">
