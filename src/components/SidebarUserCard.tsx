@@ -1,5 +1,11 @@
 // import { UserRound } from "lucide-react";
-const SidebarUserCard = () => {
+
+
+
+const SidebarUserCard =  () => {
+
+
+
   return (
     <div className="sidebar-user-list-user-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2">
       <div className="user-card-user-details w-full h-3/4  p-0.5 flex gap-2 items-center">

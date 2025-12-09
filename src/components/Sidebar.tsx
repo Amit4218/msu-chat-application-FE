@@ -8,12 +8,12 @@ const Sidebar = () => {
       <div className="sidebar-header w-full h-36">
         <div className="sidebar-header-top w-full h-1/2  flex justify-between items-center">
           <div className="sidebar-header-top-logo-messages  w-2/4 flex h-full justify-between items-center p-2 text-lg">
-            <h1>logo</h1>
+            <img src="./public/logo.svg" alt="msu-logo" className="w-3/4 h-3/4 mr-2"/>
             <h1>{"Messages(20)"}</h1>
           </div>
           <div className="sidebar-header-top-addUser text-[#8A8BE4] w-2/4 flex h-full justify-end items-center p-2 text-lg">
             <button className="active:text-[#52526b] duration-700 hover:cursor-pointer ">
-              + Add User
+              + New Chat
             </button>
           </div>
         </div>
