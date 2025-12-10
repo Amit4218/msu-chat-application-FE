@@ -32,14 +32,8 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="sidebar-users-list w-full h-[73vh] overflow-auto scrollbar-hide">
-        <SidebarUserCard />
-        <SidebarUserCard />
-        <SidebarGroupCard />
-        <SidebarUserCard />
-        <SidebarGroupCard />
-        <SidebarUserCard />
-        <SidebarUserCard />
-        <SidebarUserCard />
+        <SidebarUserCard /> 
+        <SidebarGroupCard/>
       </div>
     </div>
   );

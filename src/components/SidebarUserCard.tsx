@@ -1,25 +1,30 @@
 // import { UserRound } from "lucide-react";
-
+import { useRoomContext } from "../contexts/roomContext";
 
 
 const SidebarUserCard =  () => {
 
+  const {singleChatRoom,loading} = useRoomContext();
 
-
+  if (loading) {
+    return <div></div>; 
+  }
   return (
-    <div className="sidebar-user-list-user-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2">
+    <>
+    { singleChatRoom.map((room) =>(
+    <div key={room.id} className="sidebar-user-list-user-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2">
       <div className="user-card-user-details w-full h-3/4  p-0.5 flex gap-2 items-center">
         <div className="user-card-user-details-avtar w-2/12 h-full  rounded-full flex items-center justify-between">
           {/* <UserRound strokeWidth={0.75} className="w-full h-full" /> */}
           <img
-            src="https://avatars.githubusercontent.com/u/64682052?v=4"
+            src={room.receiver.imageUrl}
             alt="User profile"
             className="w-full h-full rounded-full"
           />
         </div>
         <div className="user-card-user-details-name w-7/12 h-full  ">
           <h2 className="w-full h-full flex items-center justify-start pl-1">
-            Amit Bhgat
+            {room.receiver.name}
           </h2>
         </div>
         <div className="user-card-user-details-lastActive w-3/12 h-full  text-sm">
@@ -34,7 +39,8 @@ const SidebarUserCard =  () => {
           10
         </p>
       </div>
-    </div>
+    </div > ))}
+    </>
   );
 };
 
