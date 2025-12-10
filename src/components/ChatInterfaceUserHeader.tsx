@@ -1,13 +1,21 @@
 import { CircleSmall, Ellipsis } from 'lucide-react';
+import { useSelectedRoom } from '../contexts/selectedRoomContext';
 
 const ChatInterfaceUserHeader = () => {
+
+  const {selectedRoom} = useSelectedRoom();
+  if (selectedRoom === null) { 
+    return <div></div>;
+  }
+
+
   return (
     <div className="chat-interface-header w-full h-[10vh]  flex items-center justify-between border-b border-[#484D73]">
       <div className="chat-interface-header-user-detals w-1/4 h-full  flex items-center gap-3">
         <div className="chat-interface-headeruser-details-avtar relative w-[24%] h-full p-2  rounded-full flex items-center justify-between">
           {/* <UserRound strokeWidth={0.75} className="w-full h-full" /> */}
           <img
-            src="https://avatars.githubusercontent.com/u/64682052?v=4"
+            src={selectedRoom.imageUrl ? selectedRoom.imageUrl : "https://avatars.githubusercontent.com/u/64682052?v=4"}
             alt="User profile"
             className="w-full h-full rounded-full"
           />
@@ -20,7 +28,7 @@ const ChatInterfaceUserHeader = () => {
         </div>
         <div className="chat-interface-header-user-name-status">
           <div className="chat-interface-header-user-name">
-            <h1 className="text-xl">Amit Bhagat</h1>
+            <h1 className="text-xl">{selectedRoom.name}</h1>
           </div>
           <div className="chat-interface-header-user-status">
             <h2 className="text-sm text-slate-400">Active Now</h2>

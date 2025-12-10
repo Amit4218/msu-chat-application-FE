@@ -1,18 +1,26 @@
 // import { UserRound } from "lucide-react";
 import { useRoomContext } from "../contexts/roomContext";
+import { useSelectedRoom } from "../contexts/selectedRoomContext";
 
 
 const SidebarUserCard =  () => {
 
-  const {singleChatRoom,loading} = useRoomContext();
+  const { singleChatRoom, loading } = useRoomContext();
+  const { setSelectedRoom } = useSelectedRoom();
+
+  const openRoom = (roomId: string,imageUrl: string,name: string,type: string) => {
+    setSelectedRoom({ roomId, imageUrl, name ,type});
+  }
+  
 
   if (loading) {
     return <div></div>; 
   }
   return (
     <>
-    { singleChatRoom.map((room) =>(
-    <div key={room.id} className="sidebar-user-list-user-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2">
+      {singleChatRoom.map((room) => (
+        
+    <div onClick={()=>{openRoom(room.id, room.receiver.imageUrl,room.receiver.name,"single");}}  key={room.id} className="sidebar-user-list-user-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2">
       <div className="user-card-user-details w-full h-3/4  p-0.5 flex gap-2 items-center">
         <div className="user-card-user-details-avtar w-2/12 h-full  rounded-full flex items-center justify-between">
           {/* <UserRound strokeWidth={0.75} className="w-full h-full" /> */}
@@ -20,8 +28,10 @@ const SidebarUserCard =  () => {
             src={room.receiver.imageUrl}
             alt="User profile"
             className="w-full h-full rounded-full"
-          />
-        </div>
+            />
+            
+          </div>
+          
         <div className="user-card-user-details-name w-7/12 h-full  ">
           <h2 className="w-full h-full flex items-center justify-start pl-1">
             {room.receiver.name}

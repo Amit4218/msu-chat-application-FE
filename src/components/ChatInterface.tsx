@@ -1,17 +1,28 @@
 import { SendHorizontal, Smile } from "lucide-react";
-// import ChatInterfaceUserHeader from "./ChatInterfaceUserHeader";
-// import ChatBoxUser from "./ChatBoxUser";
+import ChatInterfaceUserHeader from "./ChatInterfaceUserHeader";
+import ChatBoxUser from "./ChatBoxUser";
 import ChatBoxGroup from "./ChatBoxGroup";
 import ChatInterfaceGroupHeader from "./ChatInterfaceGroupHeader";
+import { useSelectedRoom } from "../contexts/selectedRoomContext";
 
 const ChatInterface = () => {
+  
+  const { selectedRoom } = useSelectedRoom();
+
+  if (selectedRoom === null) {
+    return <div></div>;
+  }
+
   return (
     <div className="chat-interface w-[77vw] h-screen bg-[#333657] text-white">
-      {/* <ChatInterfaceUserHeader />
-      <ChatBoxUser /> */}
+      {selectedRoom.type === "single" ?
+        <>
+      <ChatInterfaceUserHeader />
+      <ChatBoxUser /> </> : <>
       <ChatInterfaceGroupHeader/>
-      <ChatBoxGroup />
-      
+          <ChatBoxGroup />
+        </>
+      }
       <div className="chat-interface-input-div w-full h-[11vh] p-1 flex items-center justify-center border-t border-[#484D73] ">
         <div className="chat-interface-input-section w-[97%] bg-[#484C6F] h-[90%] rounded-full flex items-center justify-between p-3 my-2 ">
           <div className="chat-interface-input-emojis text-slate-400 w-[4%] h-full flex items-center justify-center">

@@ -6,14 +6,18 @@ import App from "./App.tsx";
 import { ThemeProvider } from "./contexts/themeProvider.tsx";
 import { RoomProvider } from "./contexts/roomContext.tsx"
 import { UserProvider } from "./contexts/userContext.tsx";
+import { SelectedRoomProvider } from "./contexts/selectedRoomContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
   // <StrictMode>
-    <BrowserRouter basename="msu-chat-application-FE">
+  <BrowserRouter basename="msu-chat-application-FE">
+    
       <ThemeProvider>
         <UserProvider>
-          <RoomProvider>
+        <RoomProvider>
+          <SelectedRoomProvider>
           <App />
+          </SelectedRoomProvider>
           </RoomProvider>
         </UserProvider>
       </ThemeProvider>

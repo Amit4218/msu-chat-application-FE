@@ -1,9 +1,18 @@
 import { UserRound } from "lucide-react";
 
 import { useRoomContext } from "../contexts/roomContext";
+import { useSelectedRoom } from "../contexts/selectedRoomContext";
 
 const SidebarGroupCard = () => {
   const { groupChatRoom, loading } = useRoomContext();
+
+  const { setSelectedRoom } = useSelectedRoom();
+
+  const openRoom = (roomId: string,name: string,type: string) => {
+    setSelectedRoom({roomId,imageUrl: null,name,type,});
+  }
+
+
 
   if (loading) {
     return <div></div>;
@@ -11,9 +20,17 @@ const SidebarGroupCard = () => {
 
 
   return (
+
     <>
-      {groupChatRoom.map((room) => {
+      {groupChatRoom.map((room) => (
         <div
+          onClick={() => {
+            openRoom(
+              room.id,
+              room.roomName,
+              "group"
+            );
+          }}
           key={room.id}
           className="sidebar-group-list-group-card w-full h-2/12 p-1 hover:bg-[#484D73] border-b border-[#484D73] pb-2"
         >
@@ -45,11 +62,10 @@ const SidebarGroupCard = () => {
               10
             </p>
           </div>
-        </div>;
-      })}
+        </div>
+      ))}
     </>
-  
-  )
+  );
 }
 
 export default SidebarGroupCard

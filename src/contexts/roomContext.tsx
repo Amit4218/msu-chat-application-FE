@@ -42,13 +42,17 @@ export interface ChatRoomResponse {
 }
 
 
+
+
 //Interface based on Context
+
 
 interface RoomContextType {
   singleChatRoom: SingleChatRoom[];
   groupChatRoom: GroupChatRoom[];
   loading: boolean;
 }
+
 
 
 
