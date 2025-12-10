@@ -1,5 +1,5 @@
 import { SendHorizontal, Smile } from "lucide-react";
-import ChatInterfaceUserHeader from "../ChatInterfaceUserHeader";
+import ChatInterfaceUserHeader from "../chatInterface/ChatInterfaceUserHeader";
 import ChatBoxUser from "../chatBox/ChatBoxUser";
 import ChatBoxGroup from "../chatBox/ChatBoxGroup";
 import ChatInterfaceGroupHeader from "./ChatInterfaceGroupHeader";
