@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useSelectedRoom } from "../../contexts/selectedRoomContext";
 
 const ChatBoxUser = () => {
   const chatRef = useRef<HTMLDivElement | null>(null);
@@ -8,6 +9,11 @@ const ChatBoxUser = () => {
       chatRef.current.scrollTop = chatRef.current.scrollHeight;
     }
   }, []);
+
+  const { selectedRoom } = useSelectedRoom();
+  if (selectedRoom === null) {
+    return <div></div>;
+  }
 
   return (
     <div
