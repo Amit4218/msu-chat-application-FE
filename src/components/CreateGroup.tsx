@@ -74,9 +74,8 @@ const CreateGroup = ({
        participants: selectedUsers.map((u) => u.userId), // 👈 userIds
      };
 
-     const res = await api.post("/user/create-group-chatRoom", payload);
+     await api.post("/user/create-group-chatRoom", payload);
 
-     console.log("Group created:", res.data);
 
      // Reset UI
      setGroupName("");

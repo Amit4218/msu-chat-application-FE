@@ -86,17 +86,8 @@ const ChatInterface = () => {
   // 🔹 Listen for block/unblock events from socket - UPDATED for new format
   useEffect(() => {
     const handleBlock = (data: any) => {
-      console.log("Block socket event:", data);
-
       const status = data.status; // true for block, false for unblock
       const blockedUserId = data.userId; // string ID of blocked user
-
-      console.log("Parsed:", {
-        status: status ? "block" : "unblock",
-        blockedUserId,
-        currentUserId: user?.id,
-        otherUserId,
-      });
 
       if (!user || !blockedUserId) return;
 
@@ -105,11 +96,6 @@ const ChatInterface = () => {
         // Current user was blocked/unblocked by someone else
         setIsBlockedByOther(status); // true if blocked, false if unblocked
         setIsBlocked(false); // Ensure this is false
-        console.log(
-          "Current user was",
-          status ? "blocked by" : "unblocked by",
-          "someone else"
-        );
       } else if (blockedUserId === otherUserId) {
         // Current user blocked/unblocked someone else
         setIsBlocked(status); // true if blocked, false if unblocked
@@ -153,13 +139,6 @@ const ChatInterface = () => {
       const { isBlocked: blockedStatus, isBlockedByOther: blockedByOther } =
         getBlockStatusFromRoom();
 
-      console.log("Initial block status from room:", {
-        blockedStatus,
-        blockedByOther,
-        roomId: selectedRoom.roomId,
-        blockedField: currentRoomData.blocked,
-      });
-
       setIsBlocked(blockedStatus);
       setIsBlockedByOther(blockedByOther);
     } else {
@@ -176,12 +155,6 @@ const ChatInterface = () => {
 
       // Update if values changed
       if (blockedStatus !== isBlocked || blockedByOther !== isBlockedByOther) {
-        console.log("Updating from room data:", {
-          blockedStatus,
-          blockedByOther,
-          previous: { isBlocked, isBlockedByOther },
-        });
-
         setIsBlocked(blockedStatus);
         setIsBlockedByOther(blockedByOther);
       }
@@ -194,7 +167,6 @@ const ChatInterface = () => {
     const isMessagingDisabled = isBlocked || isBlockedByOther;
 
     if (isMessagingDisabled) {
-      console.log("Cannot send message - blocked");
       return;
     }
 
