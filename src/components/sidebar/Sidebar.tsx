@@ -42,7 +42,7 @@ const Sidebar = () => {
           <div className="sidebar-header-top w-full h-1/2  flex justify-between items-center">
             <div className="sidebar-header-top-logo-messages  w-2/4 flex h-full justify-between items-center p-2 text-lg">
               <img
-                src="./assets/logo.svg"
+                src="./logo.svg"
                 alt="msu-logo"
                 className="w-14 h-3/4 mr-2"
               />

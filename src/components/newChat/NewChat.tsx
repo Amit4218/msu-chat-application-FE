@@ -203,7 +203,7 @@ const NewChat = ({
                     className="flex items-center gap-3 p-2 hover:bg-[#484D73] cursor-pointer rounded"
                   >
                     <img
-                      src={u.imageUrl || "public/logo.svg"}
+                      src={u.imageUrl || "/logo.svg"}
                       className="w-10 h-10 rounded-full"
                     />
                     <div>
