@@ -10,8 +10,7 @@ import { SelectedRoomProvider } from "./contexts/selectedRoomContext.tsx";
 import { ProfileTypeProvider } from "./contexts/profileTypeContext.tsx";
 
 createRoot(document.getElementById("root")!).render(
-  // <StrictMode>
-  <BrowserRouter basename="msu-chat-application-FE">
+  <BrowserRouter>
     
     <ThemeProvider>
         <UserProvider>
@@ -25,5 +24,4 @@ createRoot(document.getElementById("root")!).render(
         </UserProvider>
       </ThemeProvider>
     </BrowserRouter>
-  // /* </StrictMode> */
 );
