@@ -12,7 +12,7 @@ const ChatPage = () => {
         {selectedRoom === null ? (
           <div className="Defult-Page w-[77vw] h-screen flex justify-center items-center text-slate-400 flex-col gap-5 ">
             <img
-              src="./public/logo.svg"
+              src="./logo.svg"
               alt="msu-logo"
               className="w-40 h-40 opacity-45"
             />

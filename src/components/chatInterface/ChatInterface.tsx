@@ -114,11 +114,6 @@ const ChatInterface = () => {
         // Current user blocked/unblocked someone else
         setIsBlocked(status); // true if blocked, false if unblocked
         setIsBlockedByOther(false); // Ensure this is false
-        console.log(
-          "Current user",
-          status ? "blocked" : "unblocked",
-          "someone else"
-        );
       }
     };
 
